@@ -10,6 +10,7 @@ import { NAVIGATION_ROUTES } from "./navigationRoutes";
 
 function App() {
   const [theme, setTheme] = useState(lightTheme);
+  const [iconTheme, setIconTheme] = useState<PaletteMode>("light");
 
   const toggleTheme = (mode: PaletteMode) => {
     if (mode === "light") {
@@ -17,12 +18,13 @@ function App() {
     } else {
       setTheme(darkTheme);
     }
+    setIconTheme(mode);
   };
 
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <TopBar />
+        <TopBar toggleTheme={toggleTheme} theme={iconTheme} />
         <Grid container>
           <Grid item sx={{ width: 200 }}>
             <LeftNavigation />

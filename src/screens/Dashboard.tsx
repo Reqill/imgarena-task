@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { navigationRoutes } from "../navigationRoutes";
+import { NAVIGATION_ROUTES } from "../navigationRoutes";
 import { DashboardItem, DashboardType } from "../types/dashboard.types";
 import { NoResults } from "../components/NoResults/NoResults";
 
@@ -9,14 +9,17 @@ const DashboardScreen = () => {
   const getLinkTo = (id: DashboardItem) => {
     switch (id) {
       case DashboardItem.DASHBOARD:
-        return navigationRoutes.dashboard.path;
+        return NAVIGATION_ROUTES.dashboard.path;
       case DashboardItem.SPORTS:
-        return navigationRoutes.sports.path;
+        return NAVIGATION_ROUTES.sports.path;
       case DashboardItem.COMPETITIONS:
+        return NAVIGATION_ROUTES.competitions.path;
       case DashboardItem.ORGANISATIONS:
+        return NAVIGATION_ROUTES.organisations.path;
       case DashboardItem.USERS:
+        return NAVIGATION_ROUTES.users.path;
       case DashboardItem.SCHEDULING:
-        return navigationRoutes.dashboard.path;
+        return NAVIGATION_ROUTES.scheduling.path;
     }
   };
 

@@ -6,7 +6,7 @@ import { LeftNavigation } from "./components/LeftNavigation/LeftNavigation";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { darkTheme, lightTheme } from "./theme";
 import { Error404 } from "./screens/index";
-import { navigationRoutes } from "./navigationRoutes";
+import { NAVIGATION_ROUTES } from "./navigationRoutes";
 
 function App() {
   const [theme, setTheme] = useState(lightTheme);
@@ -29,7 +29,7 @@ function App() {
           </Grid>
           <Grid item xs>
             <Routes>
-              {Object.values(navigationRoutes).map((route) => (
+              {Object.values(NAVIGATION_ROUTES).map((route) => (
                 <Route
                   key={route.path}
                   path={route.path}

@@ -4,9 +4,11 @@ import { NoResults } from "../components/NoResults/NoResults";
 import { TableColumn } from "../components/Table/Table";
 import { Visibility } from "@mui/icons-material";
 
-export const SportsScreen = () => {
+const SportsScreen = () => {
   const [sports, setSports] = useState<SportsType | undefined>(undefined);
-  const [sportDetails, setSportDetails] = useState<SportType | undefined>(undefined);
+  const [sportDetails, setSportDetails] = useState<SportType | undefined>(
+    undefined
+  );
 
   const columns: TableColumn<SportType>[] = [
     { id: "sport", label: "Sport", value: "name" },
@@ -20,9 +22,9 @@ export const SportsScreen = () => {
     },
   ];
 
-  const getSportDetails = (id: SportType['id']) => {
+  const getSportDetails = (id: SportType["id"]) => {
     // TODO: get sport details
-  }
+  };
 
   useEffect(() => {
     // TODO: get data from sports.service
@@ -35,3 +37,5 @@ export const SportsScreen = () => {
   // TODO: display data got form service
   return <div>Sports page</div>;
 };
+
+export default SportsScreen;

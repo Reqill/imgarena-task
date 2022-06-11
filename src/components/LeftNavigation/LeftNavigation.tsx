@@ -1,4 +1,4 @@
-import { Divider } from "@mui/material";
+import { Divider, Paper, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import { NAVIGATION_ROUTES, CATEGORIES } from "../../navigationRoutes";
 /*
@@ -16,7 +16,7 @@ export const LeftNavigation = () => {
   };
 
   return (
-    <>
+    <Stack direction='column'>
       {Object.values(CATEGORIES).map((category, idx) => (
         <div key={category}>
           <p style={{ textTransform: "capitalize" }}>
@@ -26,6 +26,6 @@ export const LeftNavigation = () => {
           {idx < Object.keys(CATEGORIES).length - 1 ? <Divider /> : null}
         </div>
       ))}
-    </>
+    </Stack>
   );
 };

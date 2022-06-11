@@ -1,5 +1,11 @@
-import { DashboardScreen } from "./screens/Dashboard";
-import { SportsScreen } from "./screens/Sports";
+import {
+  DashboardScreen,
+  SportsScreen,
+  CompetitionsScreen,
+  SchedulingScreen,
+  OrganisationsScreen,
+  UsersScreen,
+} from "./screens/index";
 
 type NavigationRoute = {
   path: string;
@@ -15,5 +21,21 @@ export const navigationRoutes: NavigationRoutes = {
   sports: {
     path: "/sports",
     element: <SportsScreen />,
+  },
+  competitions: {
+    path: "/competitions",
+    element: <CompetitionsScreen />,
+  },
+  scheduling: {
+    path: "/scheduling",
+    element: <SchedulingScreen />,
+  },
+  organisations: {
+    path: "/organisations",
+    element: <OrganisationsScreen />,
+  },
+  users: {
+    path: "/users",
+    element: <UsersScreen />,
   },
 };

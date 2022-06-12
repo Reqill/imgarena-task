@@ -3,6 +3,7 @@ import { SportsType, SportType } from "../types/sports.types";
 import { NoResults } from "../components/NoResults/NoResults";
 import { TableColumn } from "../components/Table/Table";
 import { Visibility } from "@mui/icons-material";
+import { getSportById, getSports } from "../service/sports.service";
 
 const SportsScreen = () => {
   const [sports, setSports] = useState<SportsType | undefined>(undefined);
@@ -23,11 +24,25 @@ const SportsScreen = () => {
   ];
 
   const getSportDetails = (id: SportType["id"]) => {
-    // TODO: get sport details
+    // fetch selected sport details by ID
+    getSportById(id)
+      .then((s) => {
+        setSportDetails(s);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
-    // TODO: get data from sports.service
+    // fetch sports content after initial render
+    getSports()
+      .then((s) => {
+        setSports(s);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   if (!sports) {
@@ -35,7 +50,12 @@ const SportsScreen = () => {
   }
 
   // TODO: display data got form service
-  return <div>Sports page</div>;
+  return (
+    <div>
+      <p>{JSON.stringify(sports)}</p>
+      <p>{JSON.stringify(sportDetails)}</p>
+    </div>
+  );
 };
 
 export default SportsScreen;

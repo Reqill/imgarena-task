@@ -17,14 +17,20 @@ import {
   TableCell,
   TableHead,
   IconButton,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import AddSport from "./AddSport/AddSport";
 
 const SportsScreen = () => {
   const [sports, setSports] = useState<SportsType | undefined>(undefined);
+  const [addingSequence, setAddingSequence] = useState(false);
   const [sportDetails, setSportDetails] = useState<SportType | undefined>(
     undefined
   );
+  const [addInfo, setAddInfo] = useState({ name: "", location: "" });
+  const [alert, setAlert] = useState(false);
   const [activeId, setActiveId] = useState<number | undefined>(undefined);
   // const HEADER_BAR_COLOR = useTheme().appBar.main;
   // Property 'appBar' does not exist on type 'Theme'.
@@ -121,13 +127,25 @@ const SportsScreen = () => {
     ));
   };
 
+  const onFormSubmit = (sportName: string, location: string) => {
+    setAlert(true);
+    setAddInfo({ name: sportName, location: location });
+  };
+
   useEffect(() => {
+    //change opened container or close one
     if (activeId) {
       getSportDetails(activeId);
     } else {
       setSportDetails(undefined);
     }
   }, [activeId]);
+
+  useEffect(() => {
+    //close opened container when adding sport
+    if (!addingSequence) return;
+    setActiveId(undefined);
+  }, [addingSequence]);
 
   useEffect(() => {
     // fetch sports content after initial render
@@ -146,6 +164,20 @@ const SportsScreen = () => {
 
   return (
     <>
+      <Snackbar
+        open={alert}
+        onClose={() => setAlert(false)}
+        autoHideDuration={3000}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <Alert
+          onClose={() => setAlert(false)}
+          severity='info'
+          sx={{ width: "100%" }}
+        >
+          {`Submitting sport: ${addInfo.name} with location: ${addInfo.location}`}
+        </Alert>
+      </Snackbar>
       <Stack
         height='100%'
         direction='column'
@@ -195,6 +227,7 @@ const SportsScreen = () => {
                 </Typography>
                 <Button
                   variant='contained'
+                  onClick={() => setAddingSequence(true)}
                   sx={{ py: 0, px: 1, mb: 0.2, mt: 0.3 }}
                 >
                   <Typography variant='button' fontSize='12px' fontWeight={400}>
@@ -235,6 +268,14 @@ const SportsScreen = () => {
                   {sportDetails.description}
                 </Typography>
               </Card>
+            </Grid>
+          )}
+          {addingSequence && (
+            <Grid item xs>
+              <AddSport
+                closePanel={() => setAddingSequence(false)}
+                handleSubmit={onFormSubmit}
+              />
             </Grid>
           )}
         </Grid>

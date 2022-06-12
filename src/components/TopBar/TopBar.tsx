@@ -26,7 +26,7 @@ export const TopBar: FC<Props> = ({ toggleTheme, theme }) => {
   return (
     <Box sx={{ background: bg, p: 0.75 }}>
       <Stack direction='row' alignItems='center' justifyContent='space-between'>
-        <Stack direction='row'>
+        <Stack direction='row' sx={{ ml: 1 }}>
           <Logo height='33px' />
         </Stack>
         <Stack alignItems='center' direction='row' spacing={2} sx={{ pr: 2 }}>

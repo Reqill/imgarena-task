@@ -1,5 +1,10 @@
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 export const NoResults = () => {
-  return <Typography>No results found</Typography>;
+  let palette = useTheme().palette;
+  return (
+    <Typography sx={{ color: palette.text.primary }}>
+      No results found
+    </Typography>
+  );
 };

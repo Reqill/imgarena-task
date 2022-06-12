@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NAVIGATION_ROUTES } from "../navigationRoutes";
 import { DashboardItem, DashboardType } from "../types/dashboard.types";
 import { NoResults } from "../components/NoResults/NoResults";
+import { getDashboards } from "../service/dashboard.service";
 
 const DashboardScreen = () => {
   const [items, setItems] = useState<DashboardType[]>([]);
@@ -24,7 +25,14 @@ const DashboardScreen = () => {
   };
 
   useEffect(() => {
-    // TODO: get data from dashboard.service
+    // fetch dashboards content after initial render
+    getDashboards()
+      .then((dBoards) => {
+        setItems(dBoards);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   if (!items || items.length === 0) {

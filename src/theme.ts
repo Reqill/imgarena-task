@@ -43,12 +43,18 @@ export const customOverridesDark: MsfpThemeOptions = {
     mode: "dark",
     primary: {
       main: "#FF4D00",
+      dark: "#FF4D00",
+      light: "#FF4D00",
     },
     secondary: {
       main: "#757575",
     },
     text: {
       primary: "#F5F5F5",
+    },
+    grey: {
+      600: "rgba(255,255,255,0.6)",
+      700: "rgba(255,255,255,0.6)",
     },
     background: {
       default: "#202020",

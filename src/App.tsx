@@ -33,12 +33,15 @@ function App() {
       <BrowserRouter>
         <Stack
           direction='column'
-          height='100vh'
-          sx={{ background: theme.palette.background.default }}
+          sx={{
+            background: theme.palette.background.default,
+            alignItems: "stretch",
+            height: "100%",
+          }}
         >
           <TopBar toggleTheme={toggleTheme} theme={iconTheme} />
-          <Grid container height='100%'>
-            <Grid item sx={{ width: 225, zIndex: 1201 }}>
+          <Grid container alignItems='stretch' height='100%'>
+            <Grid item sx={{ width: 200, zIndex: 1201 }}>
               <LeftNavigation />
             </Grid>
             {/* <Divider flexItem orientation='vertical' /> */}

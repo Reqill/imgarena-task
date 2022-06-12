@@ -36,7 +36,7 @@ export const NavigationItem: FC<NavigationItemProp> = ({ to, icon, label }) => {
         <ListItemIcon
           sx={{
             color: isActive ? palette.primary.main : palette.grey["600"],
-            minWidth: "17%",
+            minWidth: "18.5%",
             ml: 1,
           }}
         >

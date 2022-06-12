@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Grid, PaletteMode, Stack, ThemeProvider } from "@mui/material";
+import {
+  Divider,
+  Grid,
+  PaletteMode,
+  Paper,
+  Stack,
+  ThemeProvider,
+} from "@mui/material";
 import { TopBar } from "./components/TopBar/TopBar";
 import { LeftNavigation } from "./components/LeftNavigation/LeftNavigation";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -24,13 +31,18 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Stack direction='column' height='100vh'>
+        <Stack
+          direction='column'
+          height='100vh'
+          sx={{ background: theme.palette.background.default }}
+        >
           <TopBar toggleTheme={toggleTheme} theme={iconTheme} />
           <Grid container height='100%'>
-            <Grid item sx={{ width: 200 }}>
+            <Grid item sx={{ width: 225, zIndex: 1201 }}>
               <LeftNavigation />
             </Grid>
-            <Grid item xs sx={{ background: theme.palette.background.default }}>
+            {/* <Divider flexItem orientation='vertical' /> */}
+            <Grid item xs sx={{ m: 3, mt: 8 }}>
               <Routes>
                 {Object.values(NAVIGATION_ROUTES).map((route) => (
                   <Route

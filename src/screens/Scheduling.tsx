@@ -1,5 +1,12 @@
+import { Typography, useTheme } from "@mui/material";
+
 const SchedulingScreen = () => {
-  return <div>This is Scheduling page.</div>;
+  let palette = useTheme().palette;
+  return (
+    <Typography sx={{ color: palette.text.primary }}>
+      This is Scheduling page.
+    </Typography>
+  );
 };
 
 export default SchedulingScreen;

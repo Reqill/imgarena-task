@@ -1,5 +1,12 @@
+import { Typography, useTheme } from "@mui/material";
+
 const UsersScreen = () => {
-  return <div>This is Users page.</div>;
+  let palette = useTheme().palette;
+  return (
+    <Typography sx={{ color: palette.text.primary }}>
+      This is Users page.
+    </Typography>
+  );
 };
 
 export default UsersScreen;

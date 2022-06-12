@@ -39,7 +39,7 @@ const DashboardScreen = () => {
     return <NoResults />;
   }
 
-  return <div>TODO: implement dashboard content according to designs</div>;
+  return <div>{JSON.stringify(items)}</div>;
 };
 
 export default DashboardScreen;

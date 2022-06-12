@@ -1,5 +1,12 @@
+import { Typography, useTheme } from "@mui/material";
+
 const CompetitionsScreen = () => {
-  return <div>This is Competitions page.</div>;
+  let palette = useTheme().palette;
+  return (
+    <Typography sx={{ color: palette.text.primary }}>
+      This is Competitions page.
+    </Typography>
+  );
 };
 
 export default CompetitionsScreen;

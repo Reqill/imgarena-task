@@ -1,5 +1,12 @@
+import { Typography, useTheme } from "@mui/material";
+
 const OrganisationsScreen = () => {
-  return <div>This is Organisations page.</div>;
+  let palette = useTheme().palette;
+  return (
+    <Typography sx={{ color: palette.text.primary }}>
+      This is Organisations page.
+    </Typography>
+  );
 };
 
 export default OrganisationsScreen;
